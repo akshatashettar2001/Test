@@ -1,0 +1,217 @@
+1. Method Overloading:
+   If a Class contains multiple methods with same name but difference in parameters then it is called method overloading.
+
+  Example:
+  public class Test{
+     
+	public static void test(){
+		System.out.println("invoking no arg test in Test");
+	}
+	public static void test(String name){
+		System.out.println("invoking String test in Test");
+	}
+  }
+
+  main class------>
+
+public class TestRunner{
+	public static void main(String[] args){
+		System.out.println("invoking main in TestRunner");
+		Test.test();
+		Test.test("Suma");
+	}
+}
+
+2. Variables:
+   Variable is a container or memory location to store the information or data.
+   There are 4 types-->
+   
+         1)Instance Variable:>It is declared within the class but outside the body of the method and outside the body of the condtructor.
+                             >When we want to access the Instance Variable we need to create an object,without creating an object it is not 
+                              possible to access the instance variable.
+                              Ex:  class Run{
+                                   String num;//instance variable
+                                      public static void main(String[] args){
+                                      System.out.println("invoking main in Run");
+ 				   }
+  				     }
+         2)Static variable:>It is declared within the class but outside the body of the method and outside the body of the condtructor.
+                             >When we want to access the static Variable there is no need to create an object.
+			    >We can access the static Variable by using Class name.
+				Ex: class Run{
+                                   static String num;//static variable
+                                      public static void main(String[] args){
+                                      System.out.println("invoking main in Run");
+ 				   }
+  				     }
+					
+				main calss------>
+				class RunKiller{
+					public static void main(String[] args){
+					Run.num;
+					}
+				}
+  	3)Parameter Variable:>It is declared within the paranthesis of the method or the constructor.
+                 		>Example: Example:
+  					public class Test{
+     
+						public static void test(String name){     //Parameter Variable
+							System.out.println("invoking test in Test");
+						}
+ 					 }
+
+ 					 main class------>
+
+					public class TestRunner{
+						public static void main(String[] args){
+							System.out.println("invoking main in TestRunner");
+							Test.test("Aks");
+						}
+					}
+       4)Local Variable:>It is declared within the body of the method.
+			>>Example: Example:
+  					public class Test{
+     
+						public static void test(String name){     
+							System.out.println("invoking test in Test");
+							String name="kjhskj";   //Local Variable
+							
+						}
+ 					 }
+
+3.  Difference between Heap and Stack Memory:
+
+Heap Memory:>When we execute our program JVM will creates a Heap Memory.
+	    >Within this Heap memory it will create meta space,constant pool,instance memory,and a stack.
+            >And it Checks whether our program contains main method or not,if it contains then it will create a stack frame within the stack.
+	    >meta space is used to load the class.
+	    >constant pool is used to store the primitive values.
+ 	    >instance memory is used to allocate the memory and within that memory instance variables are copied and
+	     pointing to the adress of the particular values stored in constant pool.
+
+Stack Memory:>Stack memory is used to execute the meyhods.
+             >if programcontains main method stack frame will created.
+	     >And Within that frame main method is executed.
+	     >this frame Contains method name,line no that currently executing, and local variables.
+             >And if main method accessing any other methods then other frame will created(each frame execute particular one method).
+4.Constructor overloading:a class having multiple constructor with name but difference in parameters
+Ex:
+class Home{
+String name;
+
+Home(){
+System.out.println("invoking noarg constr in Home");
+}
+Home(String location){
+System.out.println("invoking String constr in Home");
+}
+
+}
+
+
+main class--------------->
+
+class HomeRunner{
+public static void main(String[] args){
+Home home=new Home();
+Home home1=new Home("davangre");
+}
+}  
+
+5. Instance method overloading:
+Example:
+public class Test{
+     
+	public void test(){
+		System.out.println("invoking no arg test in Test");
+	}
+	public static void test(String name){
+		System.out.println("invoking String test in Test");
+	}
+  }
+
+  main class------>
+
+public class TestRunner{
+	public static void main(String[] args){
+		System.out.println("invoking main in TestRunner");
+		
+		Test ref=new Test();
+                ref.test();
+		ref.test("IA");
+
+	}
+}   
+
+6. Static variable and static method
+
+class Shop{
+static int num=10;
+
+public static void keeper(){
+System.out.println("invoking keeper in Shop");
+}
+public static void main(String[] args){
+System.out.println("invoking main in Shop");
+Shop.int;
+Shop.keeper();
+}
+}  
+
+7.  
+
+class Home{
+String name;
+int no=10;
+String location;
+
+Home(){
+super();
+System.out.println("invoking noarg constr in Home");
+
+}
+Home(String location){
+System.out.println("invoking String constr in Home");
+this.location=location;
+
+}
+
+Home(String location,int no){
+this(location)
+System.out.println("invoking String constr in Home");
+this.no=no;
+
+}
+
+Home(String location,int no,String name){
+this(location,no)
+System.out.println("invoking String constr in Home");
+this.name=name;
+
+}
+
+main class--------------->
+
+class HomeRunner{
+public static void main(String[] args){
+Home home=new Home();
+System.out.println(name);//null
+System.out.println(no);  //10
+System.out.println(location);  //null
+
+Home home1=new Home("davangre");
+System.out.println(name); //null
+System.out.println(no); //10
+System.out.println(location); //davanagere
+
+Home home2=new Home("belagavi",100);
+System.out.println(name);//davanagere
+System.out.println(no);   //100
+System.out.println(location); //belagavi
+
+Home home2=new Home("Ballari",200,"nagar");
+System.out.println(name);//ballari
+System.out.println(no);//200
+System.out.println(location);//nagar
+}
+}              
